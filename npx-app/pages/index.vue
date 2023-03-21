@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-center items-center">
-      <div class="rainbow-container tablet:hidden" style="font-size: 120px;cursor: none;pointer-events: none;">
+      <div class="rainbow-container" style="font-size: 120px;cursor: none;pointer-events: none;">
         <div class="green"></div>
         <div class="pink"></div>
       </div>
