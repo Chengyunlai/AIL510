@@ -4,10 +4,10 @@
         <div class="green"></div>
         <div class="pink"></div>
       </div>
-      <h1 class="mt-4 text-white text-6xl font-bold subpixel-antialiased">
+      <h1 @click="toLogin" class="mt-4 text-gray-900 dark:text-white text-6xl font-bold subpixel-antialiased">
         AIL510
       </h1>
-      <span class="text-white mt-4">释放你的创造力</span>
+      <span class="mt-4 text-gray-900 dark:text-white">释放你的创造力</span>
   </div>
 </template>
 
@@ -110,3 +110,11 @@
   }
 }
 </style>
+
+<script setup>
+  const route = useRoute()
+  function toLogin(){
+    console.log(1)
+    navigateTo('/login')
+  }
+</script>

@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'media',
+  // darkMode: 'media',
+  darkMode: 'class',
   content: [],
   theme: {
     extend: {},
@@ -10,5 +11,7 @@ module.exports = {
       '3/4': '75%',
      },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms')
+  ],
 }
