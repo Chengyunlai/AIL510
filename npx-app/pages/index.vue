@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center items-center">
+  <div id="pages" class="flex flex-col justify-center items-center">
       <div class="rainbow-container" style="font-size: 120px;cursor: none;pointer-events: none;">
         <div class="green"></div>
         <div class="pink"></div>
@@ -112,9 +112,31 @@
 </style>
 
 <script setup>
+  import {ref} from "vue";
+
   const route = useRoute()
   function toLogin(){
     console.log(1)
     navigateTo('/login')
+  }
+
+  const screenHeight = ref(0)
+  onMounted(()=>{
+    getHeight()
+  })
+  function getHeight(){
+    if (process.client) {
+      screenHeight.value = window.innerHeight - 96; // 96是要减去的像素值
+      // 设置nuxtPage的高度为sceenHeight
+      const pages = document.getElementById("pages");
+      pages.style.height = screenHeight.value + "px";
+      console.log(pages.style.height)
+    }
+  }
+
+  if (process.client) {
+    window.onresize = function () {
+      getHeight()
+    }
   }
 </script>

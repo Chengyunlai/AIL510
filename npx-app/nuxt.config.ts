@@ -4,7 +4,9 @@ export default defineNuxtConfig({
   routeRules:{
     '/':{ssr:false},
     '/test':{ssr:false},
-    '/fire':{ssr:false}
+    '/fire':{ssr:false},
+    '/about':{ssr:false},
+    '/login':{ssr:false},
   },
   modules:[
     '@nuxtjs/tailwindcss',

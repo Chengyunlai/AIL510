@@ -35,7 +35,6 @@
               <div class="flex items-center">
                 <ModeColor></ModeColor>
                 <div class="flex ml-10 space-x-4">
-                  <!--<button @click="switchMode">点击我</button>-->
                   <a
                       href="/login"
                       class=" rounded-md border border-transparent bg-indigo-500  py-2 px-4 text-base font-medium text-white hover:bg-opacity-75"
@@ -58,7 +57,7 @@
 
 const navigation = [
   { name: "首页", href: "/" },
-  { name: "实验室介绍", href: "#" },
+  { name: "实验室介绍", href: "/about" },
   { name: "项目", href: "#" },
   { name: "教师详情", href: "#" },
 ];
