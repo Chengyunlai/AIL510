@@ -37,33 +37,117 @@
 
       <n-grid cols="4" item-responsive responsive="screen">
         <n-grid-item span="4 m:4 l:4">
-          <div class="flex flex-col justify-center pr-5">
-            <h1 class="text-blue-600 dark:text-blue-500 text-2xl md:text-3xl xl:text-4xl font-bold font-sans p-1 mb-2">人工智能与大数据技术研发中心</h1>
-            <h2 class="text-blue-500 dark:text-blue-300 text-lg md:text-2xl xl:text-2xl font-bold font-sans  p-1 mb-1">浙江科技学院信息技术产业研究院</h2>
-            <p class="text-lg font-light text-gray-900 dark:text-white tracking-wide leading-9 p-1 mb-3" >人工智能与大数据技术研发中心（以下简称: 研发中心）隶属于浙江科技学院信息技术产业研究院，以新一代人工智能与大数据创新团队建设为核心，推进大跨度的学科交叉融合，推进大范围的技术与产业、学校及企业融合。
-              研发中心旨在推动大数据共性核心技术、智能安防与机器视觉新技术、行业大数据应用技术（包括 <n-tag class="m-1" v-for="field in fields" size="large" type="success">
+          <div class="flex flex-col justify-center">
+            <h1 class="text-blue-600 dark:text-blue-500 text-3xl md:text-3xl xl:text-4xl font-bold font-sans p-1 ">雷景生教授 团队介绍</h1>
+            <div class="flex items-center  mb-2 mt-5">
+              <n-icon size="35" class="text-blue-400 dark:text-white mr-2 hover:text-blue-300 dark:hover:text-blue-300">
+                <TagMultiple20Regular></TagMultiple20Regular>
+              </n-icon>
+              <h2 class="text-blue-500 dark:text-blue-300 text-lg md:text-2xl xl:text-2xl font-bold font-sans  p-1">浙江科技学院实验大楼（510 & 504）实验室</h2>
+            </div>
+            <n-progress
+                style="width: 30%"
+                :height="4"
+                processing
+                type="line"
+                :show-indicator="false"
+                status="success"
+                :percentage="100"
+                class="mb-2"
+            />
+            <p class="text-lg font-light text-gray-900 dark:text-white tracking-wide leading-9 p-1 mb-3" >
+              实验大楼（510 & 504）实验室，以新一代人工智能与大数据创新团队建设为核心，推进大跨度的学科交叉融合，推进大范围的技术与产业、学校及企业融合。
+              实验室旨在推动大数据共性核心技术、智能安防与机器视觉新技术、行业大数据应用技术（包括 <n-tag class="m-1" v-for="field in fields" size="large" type="success">
                 {{field.text}}</n-tag>等行业领域）的产业化。
+            </p>
+            <p class="text-lg font-light text-gray-900 dark:text-white tracking-wide leading-9 p-1 mb-3" >
+              <span class="font-bold">精雕细琢方为器 千锤百炼始成钢。</span>雷景生教授以学生为导向，建设两个实验室：<n-tag size="large" type="success">510 & 504 实验室</n-tag>。
+            </p>
+            <p class="text-lg font-light text-gray-900 dark:text-white tracking-wide leading-9 p-1 mb-3">
+              <n-tag size="large" type="success" class="font-bold">510 实验室</n-tag> 主要负责横向项目及纵向项目，以培养学生项目工程为主，提升学生就业竞争力。
+            </p>
+            <p class="text-lg font-light text-gray-900 dark:text-white tracking-wide leading-9 p-1 mb-3">
+              <n-tag size="large" type="success" class="font-bold">504 实验室</n-tag> 主要负责学术研究，以培养学生科研为主，提升学生科研水平和学术能力。
             </p>
           </div>
         </n-grid-item>
 
         <n-grid-item span="4 m:4 l:4">
-          <h2 class="text-blue-500 dark:text-blue-300 text-lg md:text-2xl xl:text-2xl font-bold font-sans p-1 mb-1">实验室成员概要</h2>
-          <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide leading-5 p-1">现有成员 <span class="font-bold">25</span> 人，其中正高级职称 <span class="font-bold">6</span> 人，副高级职称 <span class="font-bold">9</span> 人，博士 <span class="font-bold">22</span> 人，有海外背景的成员 <span class=font-bold>8</span> 人，有企业背景的成员 <span class="font-bold">10</span> 人。</p>
-          <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide leading-5 p-1">成员包括国家“千人计划”、浙江省“千人计划”、浙江省钱江学者，浙江省151各层次人才，中青年学科带头人等  <span class="font-bold">10</span>  余人。</p>
-          <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide leading-5 p-1 mb-3">实验室研究生团队 <span class="font-bold">56</span>  人。</p>
+          <div class="flex items-center mb-2 mt-5">
+            <n-icon size="35" class="text-blue-400 dark:text-white mr-2 hover:text-blue-300 dark:hover:text-blue-300">
+              <TagMultiple20Regular></TagMultiple20Regular>
+            </n-icon>
+            <h2 class="text-blue-500 dark:text-blue-300 text-lg md:text-2xl xl:text-2xl font-bold font-sans p-1 ">实验室成员概要</h2>
+          </div>
+
+          <n-progress
+              style="width: 30%"
+              :height="4"
+              processing
+              type="line"
+              :show-indicator="false"
+              status="success"
+              :percentage="100"
+              class="mb-2"
+          />
+          <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide leading-9 p-1 ">现有成员 <span class="font-bold">20</span> 人，其中教师 <span class="font-bold">4</span> 人，研究生 <span class="font-bold">16</span> 人</p>
+          <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide leading-9 p-1 mb-3">实验室累积总人数<span class="font-bold"> 40 </span>人。已经毕业<span class="font-bold"> 20 </span>人。</p>
         </n-grid-item>
 
         <n-grid-item span="4 m:4 l:4">
-          <h2 class="text-blue-500 dark:text-blue-300 text-lg md:text-2xl xl:text-2xl font-bold font-sans  p-1 mb-1">专家</h2>
+          <div class="flex items-center mb-2 mt-5">
+            <n-icon size="35" class="text-blue-400 dark:text-white mr-2 hover:text-blue-300 dark:hover:text-blue-300">
+              <TagMultiple20Regular></TagMultiple20Regular>
+            </n-icon>
+            <h2 class="text-blue-500 dark:text-blue-300 text-lg md:text-2xl xl:text-2xl font-bold font-sans  p-1">教师</h2>
+          </div>
+          <n-progress
+              style="width: 30%"
+              :height="4"
+              processing
+              type="line"
+              :show-indicator="false"
+              status="success"
+              :percentage="100"
+              class="mb-2"
+          />
           <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1"><span class="font-bold">雷景生</span>教授，博士生导师，现任浙江科技学院信息与电子工程学院院长</p>
-          <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1"><span class="font-bold">黄正能</span>，美国华盛顿大学（西雅图）电子工程系教授， IEEE院士</p>
-          <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1  mb-3"><span class="font-bold">吴逵</span>，加拿大维多利亚大学计算机系教授</p>
+          <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1"><span class="font-bold">杨胜英</span>，博士，实验室学术负责人</p>
+          <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1  mb-3"><span class="font-bold">史文彬</span>，博士，实验室项目工程负责人</p>
+        </n-grid-item>
+
+        <n-grid-item span="4 m:4 l:4">
+          <div class="flex items-center mb-2 mt-5">
+            <n-icon size="35" class="text-blue-400 dark:text-white mr-2 hover:text-blue-300 dark:hover:text-blue-300">
+              <TagMultiple20Regular></TagMultiple20Regular>
+            </n-icon>
+            <h2 class="text-blue-500 dark:text-blue-300 text-lg md:text-2xl xl:text-2xl font-bold font-sans  p-1">实验室福利</h2>
+          </div>
+          <n-progress
+              style="width: 30%"
+              :height="4"
+              processing
+              type="line"
+              :show-indicator="false"
+              status="success"
+              :percentage="100"
+              class="mb-2"
+          />
+          <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1"><span class="font-bold">独立工位 + 个人PC + 空调</span></p>
+          <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1"><span class="font-bold">大型算力服务器、独立制冰机、咖啡机</span></p>
+          <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1"><span class="font-bold">不定期美食、团建</span></p>
+          <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1"><span class="font-bold">学生津贴</span></p>
+          <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1  mb-3"><span class="font-bold">学校 ”市中心“ 位置，通勤便利，负一层停车（自行车，汽车）</span></p>
         </n-grid-item>
 
         <n-grid-item span="4 m:4 l:4">
           <div class="flex flex-col justify-center">
-            <h2 class="text-blue-500 dark:text-blue-300 text-lg  md:text-2xl xl:text-2xl font-bold font-sans  p-1 mb-1">学术成果概要</h2>
+            <div class="flex items-center mb-2 mt-5">
+              <n-icon size="35" class="text-blue-400 dark:text-white mr-2 hover:text-blue-300 dark:hover:text-blue-300">
+                <TagMultiple20Regular></TagMultiple20Regular>
+              </n-icon>
+              <h2 class="text-blue-500 dark:text-blue-300 text-lg  md:text-2xl xl:text-2xl font-bold font-sans  p-1">学术成果概要</h2>
+            </div>
             <div>
               <div class="hidden sm:block">
                 <!--<li class="p-2 text-base text-gray-900 dark:text-white" v-for="product in products2">{{product.text}}</li>-->
@@ -77,7 +161,7 @@
               </div>
             </div>
             <div class="sm:hidden block">
-              <span>......</span>
+              <span class="text-black dark:text-white text-2xl">... ...</span>
             </div>
           </div>
         </n-grid-item>
@@ -87,7 +171,7 @@
 
       <n-grid cols="4" item-responsive responsive="screen"  class="mb-8">
         <n-grid-item span="4 m:2 l:2">
-          <div class="flex flex-col justify-center pr-5">
+          <div class="flex flex-col justify-center">
             <n-divider title-placement="center">
               <h1 class="text-gray-900 dark:text-white flex-none text-2xl md:text-2xl xl:text-2xl font-bold font-sans">有朋自远方来，不亦乐乎</h1>
             </n-divider>
@@ -113,6 +197,7 @@
 </template>
 
 <script setup>
+import {TagMultiple20Regular} from '@vicons/fluent'
 let id = 0;
 let index = 0;
 

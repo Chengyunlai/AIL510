@@ -1,7 +1,9 @@
 <template>
+  <n-message-provider>
   <NuxtLayout :name="layout">
     <NuxtPage class="bg-gray-200 dark:bg-neutral-900"></NuxtPage>
   </NuxtLayout>
+  </n-message-provider>
 </template>
 
 <style>

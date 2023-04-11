@@ -1,10 +1,10 @@
 <template>
-  <div id="pages" class="flex flex-col justify-center items-center">
-      <div class="rainbow-container" style="font-size: 120px;cursor: none;pointer-events: none;">
+  <div id="pages" class="flex flex-col justify-center items-center" style="caret-color: transparent">
+      <div class="rainbow-container" style="font-size: 120px;">
         <div class="green"></div>
         <div class="pink"></div>
       </div>
-      <h1 @click="toLogin" class="mt-4 text-gray-900 dark:text-white text-6xl font-bold subpixel-antialiased">
+      <h1 @click="toLogin" class="mt-4 text-gray-900 dark:text-white text-6xl font-bold subpixel-antialiased" style="cursor: pointer">
         AIL510
       </h1>
       <span class="mt-4 text-gray-900 dark:text-white">释放你的创造力</span>
@@ -116,7 +116,7 @@
 
   const route = useRoute()
   function toLogin(){
-    console.log(1)
+    // console.log(1)
     navigateTo('/login')
   }
 

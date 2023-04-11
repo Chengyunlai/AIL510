@@ -7,7 +7,7 @@
                 v-for="link in navigation"
                 :key="link.name"
                 :href="link.href"
-                class="text-base font-medium text-gray-900 dark:text-white hover:text-indigo-50"
+                class="text-base font-medium text-gray-900 dark:text-white dark:hover:text-blue-500 hover:text-violet-600"
             >{{ link.name }}</a
             >
           </div>
@@ -27,7 +27,7 @@
                       v-for="link in navigation"
                       :key="link.name"
                       :href="link.href"
-                      class="text-base font-medium text-gray-900 dark:text-white hover:text-indigo-50"
+                      class="text-base font-medium text-gray-900 dark:text-white dark:hover:text-blue-500 hover:text-violet-600"
                   >{{ link.name }}</a
                   >
                 </div>
@@ -41,9 +41,9 @@
                   >登录</a
                   >
                   <a
-                      href="#"
-                      class="text-white dark:text-black rounded-md border border-transparent bg-neutral-500 dark:bg-white py-2 px-4 text-base font-medium text-indigo-600 hover:bg-indigo-50"
-                  >注册</a
+                      href="/contact"
+                      class="text-white dark:text-black rounded-md border border-transparent bg-neutral-500 dark:bg-white py-2 px-4 text-base font-medium text-indigo-600 hover:bg-opacity-75 dark:hover:bg-slate-200"
+                  >联系</a
                   >
                 </div>
               </div>
@@ -58,8 +58,8 @@
 const navigation = [
   { name: "首页", href: "/" },
   { name: "实验室介绍", href: "/about" },
-  { name: "项目", href: "#" },
-  { name: "教师详情", href: "#" },
+  // { name: "项目", href: "#" },
+  // { name: "教师详情", href: "#" },
 ];
 </script>
 

@@ -1098,6 +1098,11 @@
     node-gyp-build "^4.2.2"
     resolve-from "^5.0.0"
 
+"@vicons/antd@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.npmmirror.com/@vicons/antd/-/antd-0.12.0.tgz#56612381fb3fc79c0bf8d117c2f4de24de52cbbd"
+  integrity sha512-C0p6aO1EmGG1QHrqgUWQS1No20934OdWSRQshM5NIDK5H1On6tC26U0hT6Rmp40KfUsvhvX5YW8BoWJdNFifPg==
+
 "@vicons/fluent@^0.12.0":
   version "0.12.0"
   resolved "https://registry.npmmirror.com/@vicons/fluent/-/fluent-0.12.0.tgz#7e9a39190114f7cb682a71dd166e7efec35e5e9c"
