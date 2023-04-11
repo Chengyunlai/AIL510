@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '/about':{ssr:true},
     '/login':{ssr:false},
     '/contact':{ssr:false},
+    '/glass':{ssr:false},
   },
   modules:[
     '@nuxtjs/tailwindcss',

@@ -1,9 +1,12 @@
 <template>
   <div id="pages" class="flex flex-col justify-center items-center" style="caret-color: transparent">
-      <div class="rainbow-container" style="font-size: 120px;">
-        <div class="green"></div>
-        <div class="pink"></div>
-      </div>
+      <!--<div class="rainbow-container" style="font-size: 120px;">-->
+      <!--  <div class="green"></div>-->
+      <!--  <div class="pink"></div>-->
+      <!--</div>-->
+    <div class="relative" style="height: 150px;width: 150px;">
+      <canvas class="absolute" id="canvas3d"></canvas>
+    </div>
       <h1 @click="toLogin" class="mt-4 text-gray-900 dark:text-white text-6xl font-bold subpixel-antialiased" style="cursor: pointer">
         AIL510
       </h1>
@@ -113,6 +116,18 @@
 
 <script setup>
   import {ref} from "vue";
+  import { Application } from '@splinetool/runtime';
+  onMounted(()=>{
+    getUI()
+  })
+  function getUI(){
+    if (process.client) {
+      const canvas = document.getElementById('canvas3d');
+      console.log(canvas)
+      const spline = new Application(canvas);
+      spline.load('https://prod.spline.design/n14-62Rb3oJV7kmA/scene.splinecode');
+    }
+  }
 
   const route = useRoute()
   function toLogin(){

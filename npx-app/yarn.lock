@@ -986,6 +986,14 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
+"@splinetool/runtime@^0.9.291":
+  version "0.9.291"
+  resolved "https://registry.npmmirror.com/@splinetool/runtime/-/runtime-0.9.291.tgz#1ffbc01e90dd25591bfae7738719731ae899ab7b"
+  integrity sha512-Y/We9LtvBFxwtewFjrv1DYNM+9+7wijO1HVHegp4MdVHiyO7w9agVhuDAj6a1HSIXwKXdudTUlYIjsG+izzkoQ==
+  dependencies:
+    on-change "^4.0.0"
+    semver-compare "^1.0.0"
+
 "@tailwindcss/forms@^0.5.3":
   version "0.5.3"
   resolved "https://registry.npmmirror.com/@tailwindcss/forms/-/forms-0.5.3.tgz#e4d7989686cbcaf416c53f1523df5225332a86e7"
@@ -3836,6 +3844,11 @@ ohash@^1.0.0:
   resolved "https://registry.npmmirror.com/ohash/-/ohash-1.0.0.tgz#e6ab04851ef9a479beb6e8a2457ff0d3ccf77371"
   integrity sha512-kxSyzq6tt+6EE/xCnD1XaFhCCjUNUaz3X30rJp6mnjGLXAAvuPFqohMdv0aScWzajR45C29HyBaXZ8jXBwnh9A==
 
+on-change@^4.0.0:
+  version "4.0.2"
+  resolved "https://registry.npmmirror.com/on-change/-/on-change-4.0.2.tgz#838129790f09dc2ed04284944bda6e82b92c10b8"
+  integrity sha512-cMtCyuJmTx/bg2HCpHo3ZLeF7FZnBOapLqZHr2AlLeJ5Ul0Zu2mUJJz051Fdwu/Et2YW04ZD+TtU+gVy0ACNCA==
+
 on-finished@2.4.1, on-finished@^2.3.0:
   version "2.4.1"
   resolved "https://registry.npmmirror.com/on-finished/-/on-finished-2.4.1.tgz#58c8c44116e54845ad57f14ab10b03533184ac3f"
@@ -4616,6 +4629,11 @@ seemly@^0.3.6:
   version "0.3.6"
   resolved "https://registry.npmmirror.com/seemly/-/seemly-0.3.6.tgz#7ef97e8083dea00804965e2662f572a5df9cb18e"
   integrity sha512-lEV5VB8BUKTo/AfktXJcy+JeXns26ylbMkIUco8CYREsQijuz4mrXres2Q+vMLdwkuLxJdIPQ8IlCIxLYm71Yw==
+
+semver-compare@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmmirror.com/semver-compare/-/semver-compare-1.0.0.tgz#0dee216a1c941ab37e9efb1788f6afc5ff5537fc"
+  integrity sha512-YM3/ITh2MJ5MtzaM429anh+x2jiLVjqILF4m4oyQB18W7Ggea7BfqdH/wGMK7dDiMghv/6WG7znWMwUDzJiXow==
 
 semver@^6.0.0, semver@^6.3.0:
   version "6.3.0"

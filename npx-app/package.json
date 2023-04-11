@@ -24,6 +24,7 @@
     "@headlessui/vue": "^1.7.12",
     "@heroicons/vue": "^2.0.16",
     "@jiaminghi/data-view": "^2.10.0",
+    "@splinetool/runtime": "^0.9.291",
     "@tailwindcss/forms": "^0.5.3",
     "canvas-confetti": "^1.6.0",
     "echarts": "^5.4.2"
