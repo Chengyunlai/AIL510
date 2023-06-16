@@ -72,7 +72,7 @@
           </div>
         </n-grid-item>
 
-        <n-grid-item span="4 m:4 l:4">
+        <n-grid-item span="4 m:4 l:2">
           <div class="flex items-center mb-2 mt-5">
             <n-icon size="35" class="text-blue-400 dark:text-white mr-2 hover:text-blue-300 dark:hover:text-blue-300">
               <TagMultiple20Regular></TagMultiple20Regular>
@@ -92,9 +92,7 @@
           />
           <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide leading-9 p-1 ">现有成员 <span class="font-bold">20</span> 人，其中教师 <span class="font-bold">4</span> 人，研究生 <span class="font-bold">16</span> 人</p>
           <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide leading-9 p-1 mb-3">实验室累积总人数<span class="font-bold"> 40 </span>人。已经毕业<span class="font-bold"> 20 </span>人。</p>
-        </n-grid-item>
 
-        <n-grid-item span="4 m:4 l:4">
           <div class="flex items-center mb-2 mt-5">
             <n-icon size="35" class="text-blue-400 dark:text-white mr-2 hover:text-blue-300 dark:hover:text-blue-300">
               <TagMultiple20Regular></TagMultiple20Regular>
@@ -114,9 +112,6 @@
           <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1"><span class="font-bold">雷景生</span>教授，博士生导师，现任浙江科技学院信息与电子工程学院院长</p>
           <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1"><span class="font-bold">杨胜英</span>，博士，实验室学术负责人</p>
           <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1  mb-3"><span class="font-bold">史文彬</span>，博士，实验室项目工程负责人</p>
-        </n-grid-item>
-
-        <n-grid-item span="4 m:4 l:4">
           <div class="flex items-center mb-2 mt-5">
             <n-icon size="35" class="text-blue-400 dark:text-white mr-2 hover:text-blue-300 dark:hover:text-blue-300">
               <TagMultiple20Regular></TagMultiple20Regular>
@@ -138,6 +133,10 @@
           <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1"><span class="font-bold">不定期美食、团建</span></p>
           <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1"><span class="font-bold">学生津贴</span></p>
           <p class="font-light text-lg text-gray-900 dark:text-white tracking-wide  p-1  mb-3"><span class="font-bold">学校 ”市中心“ 位置，通勤便利，负一层停车（自行车，汽车）</span></p>
+        </n-grid-item>
+
+        <n-grid-item span="4 m:4 l:2">
+          <MapGdMap></MapGdMap>
         </n-grid-item>
 
         <n-grid-item span="4 m:4 l:4">

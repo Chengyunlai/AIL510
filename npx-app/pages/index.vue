@@ -10,7 +10,7 @@
       <h1 @click="toLogin" class="mt-4 text-gray-900 dark:text-white text-6xl font-bold subpixel-antialiased" style="cursor: pointer">
         AIL510
       </h1>
-      <span class="mt-4 text-gray-900 dark:text-white">释放你的创造力</span>
+      <span class="mt-4 text-gray-900 dark:text-white">浙江科技学院-最强实验室</span>
   </div>
 </template>
 
@@ -123,7 +123,7 @@
   function getUI(){
     if (process.client) {
       const canvas = document.getElementById('canvas3d');
-      console.log(canvas)
+      // console.log(canvas)
       const spline = new Application(canvas);
       spline.load('https://prod.spline.design/n14-62Rb3oJV7kmA/scene.splinecode');
     }
@@ -145,7 +145,7 @@
       // 设置nuxtPage的高度为sceenHeight
       const pages = document.getElementById("pages");
       pages.style.height = screenHeight.value + "px";
-      console.log(pages.style.height)
+      // console.log(pages.style.height)
     }
   }
 

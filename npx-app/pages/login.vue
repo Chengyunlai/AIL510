@@ -20,25 +20,25 @@
 
           <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 h-full">
-              <form class="space-y-6" action="#" method="POST">
+              <form class="space-y-6" method="POST">
                 <div>
                   <label for="userName" class="block text-sm font-medium text-gray-700">User Name</label>
                   <div class="mt-1">
-                    <input id="userName" name="userName" type="username" autocomplete="username" required="" class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+                    <input v-model="user.username" id="username" name="username" type="username" autocomplete="username" required="" class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
                   </div>
                 </div>
 
                 <div>
                   <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                   <div class="mt-1">
-                    <input id="password" name="password" type="password" autocomplete="current-password" required="" class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+                    <input v-model="user.password" id="password" name="password" type="password" autocomplete="current-password" required="" class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
                   </div>
                 </div>
 
                 <div class="flex items-center justify-between">
                   <div class="flex items-center">
-                    <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                    <label for="remember-me" class="ml-2 block text-sm text-gray-900">Remember me</label>
+                    <input v-model="user.selected" id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+                    <label for="remember-me" class="ml-2 block text-sm text-gray-900">30天免密登录</label>
                   </div>
 
                   <div class="text-sm">
@@ -47,7 +47,7 @@
                 </div>
 
                 <div>
-                  <button type="submit" class="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">登录</button>
+                  <button @click.prevent="login()" class="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">登录</button>
                 </div>
               </form>
 
@@ -108,12 +108,15 @@
 <script setup>
 import {WechatFilled,QqOutlined} from '@vicons/antd'
 import confetti from 'canvas-confetti'
-import {ref} from "vue";
+import {ref,toRefs} from "vue";
 const end = Date.now() + (2*1000)
 
 // 喷出五彩纸屑
 
 const timer = setInterval(frame,2000)
+const duration = 3 * 1000;
+const animationEnd = Date.now() + duration;
+const defaults = { startVelocity: 18, spread: 250, ticks: 120, zIndex: 0 };
 
 function frame(){
   // confetti({
@@ -135,15 +138,9 @@ function frame(){
     clearInterval(timer)
   }
 }
-
-const duration = 3 * 1000;
-const animationEnd = Date.now() + duration;
-const defaults = { startVelocity: 18, spread: 250, ticks: 120, zIndex: 0 };
-
 function randomInRange(min, max) {
   return Math.random() * (max - min) + min;
 }
-
 const spark = setInterval(function (){
   var timeLeft = animationEnd - Date.now();
 
@@ -158,7 +155,6 @@ const spark = setInterval(function (){
 },200)
 
 const screenHeight = ref(0)
-
 onMounted(()=>{
   getHeight()
 })
@@ -168,13 +164,65 @@ function getHeight(){
     // 设置nuxtPage的高度为sceenHeight
     const pages = document.getElementById("pages");
     pages.style.height = screenHeight.value + "px";
-    console.log(pages.style.height)
+    // console.log(pages.style.height)
   }
 }
-
 if (process.client) {
   window.onresize = function () {
     getHeight()
+  }
+}
+
+const user = ref({
+  username:'',
+  password:'',
+  selected:false
+})
+
+const config = useRuntimeConfig()
+
+// 登录方法
+import { useMessage } from 'naive-ui'
+
+const message = useMessage()
+const store = is_Login()
+const {token} = storeToRefs(store)
+const router = useRouter()
+
+async function login() {
+  const userJson = JSON.stringify(user.value)
+  // console.log(userJson)
+
+  const {data: res, pending, error, refresh} = await useFetch(() => '/login', {
+    baseURL: config.public.baseUrl,
+    method: 'post',
+    body: userJson,
+    server: false
+  })
+
+  if (pending) {
+    // 请求还在进行中，可以显示加载中的提示
+    message.success('正在验证中',{
+      duration:1000
+    })
+  }
+  console.log(res.value)
+  if (res && res.value.code==200) {
+    message.success(res.value.message, {
+      duration: 5000
+    })
+    console.log(res.value.data.token)
+    token.value  = res.value.data.token
+    router.push({ path: "/room" });
+
+  } else if (res && res.value.code==201) {
+    message.error(res.value.message, {
+      duration: 5000
+    })
+  }else{
+    message.error("网络问题请稍后重试", {
+      duration: 5000
+    })
   }
 }
 </script>

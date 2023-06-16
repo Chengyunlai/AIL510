@@ -3,13 +3,11 @@
         <nav class="px-6 lg:px-20" aria-label="Top">
           <!-- 默认隐藏 -->
           <div class="flex flex-wrap justify-center gap-x-6 py-4 md:hidden">
-            <a
+            <NuxtLink
                 v-for="link in navigation"
-                :key="link.name"
-                :href="link.href"
+                :to="link.href"
                 class="text-base font-medium text-gray-900 dark:text-white dark:hover:text-blue-500 hover:text-violet-600"
-            >{{ link.name }}</a
-            >
+            >{{ link.name }}</NuxtLink>
           </div>
 
           <div
@@ -23,27 +21,25 @@
                   <span class="sr-only text-white">AIL510</span>
                 </a>
                 <div class="ml-10 space-x-8">
-                  <a
+                  <NuxtLink
                       v-for="link in navigation"
-                      :key="link.name"
-                      :href="link.href"
+                      :to="link.href"
                       class="text-base font-medium text-gray-900 dark:text-white dark:hover:text-blue-500 hover:text-violet-600"
-                  >{{ link.name }}</a
-                  >
+                  >{{ link.name }}</NuxtLink>
                 </div>
               </div>
               <div class="flex items-center">
                 <ModeColor></ModeColor>
                 <div class="flex ml-10 space-x-4">
                   <a
-                      href="/login"
-                      class=" rounded-md border border-transparent bg-indigo-500  py-2 px-4 text-base font-medium text-white hover:bg-opacity-75"
+                      @click="login()"
+                      class="hover:cursor-pointer rounded-md border border-transparent bg-indigo-500  py-2 px-4 text-base font-medium text-white hover:bg-opacity-75"
                   >登录</a
                   >
-                  <a
-                      href="/contact"
+                  <NuxtLink
+                      to="/contact"
                       class="text-white dark:text-black rounded-md border border-transparent bg-neutral-500 dark:bg-white py-2 px-4 text-base font-medium text-indigo-600 hover:bg-opacity-75 dark:hover:bg-slate-200"
-                  >联系</a
+                  >联系</NuxtLink
                   >
                 </div>
               </div>
@@ -53,13 +49,37 @@
       </header>
 </template>
 
-<script setup>
+<script setup >
+const store = is_Login()
+const {token} = storeToRefs(store)
+const router = useRouter()
+const config = useRuntimeConfig()
+
+async function login(){
+  if (token.value != null){
+    // 验证token是否有效
+    const {data,error} =await useFetch('/verification',{
+      baseURL: config.public.baseUrl,
+      method: 'get',
+      headers:{
+        'token':token
+      },
+      server: false
+    })
+    // 如果token有效
+    if (data.value.code == 201){
+      router.push({ path: "/login" });
+    }else {
+      router.push({ path: "/room" });
+    }
+  }else{
+    router.push({ path: "/login" });
+  }
+}
 
 const navigation = [
   { name: "首页", href: "/" },
   { name: "实验室介绍", href: "/about" },
-  // { name: "项目", href: "#" },
-  // { name: "教师详情", href: "#" },
 ];
 </script>
 
