@@ -5681,6 +5681,11 @@ type-is@^1.6.16:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
+typeit@^8.7.1:
+  version "8.7.1"
+  resolved "https://registry.npmmirror.com/typeit/-/typeit-8.7.1.tgz#d45921def11d4b71a445d34e546a5cdb4d1f9014"
+  integrity sha512-Bx/O4NMz10NWh9FWYtVwV4XwGHF9UDJfpCZPJRtw2/oUcahFAStU8J0t19aroPfTV6s1UlS5ICoqilOqmEnh2Q==
+
 ufo@^1.0.0, ufo@^1.1.0, ufo@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npmmirror.com/ufo/-/ufo-1.1.1.tgz#e70265e7152f3aba425bd013d150b2cdf4056d7c"

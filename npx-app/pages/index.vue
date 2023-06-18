@@ -10,7 +10,7 @@
       <h1 @click="toLogin" class="mt-4 text-gray-900 dark:text-white text-6xl font-bold subpixel-antialiased" style="cursor: pointer">
         AIL510
       </h1>
-      <span class="mt-4 text-gray-900 dark:text-white">浙江科技学院-最强实验室</span>
+      <span ref="chat" class="mt-4 text-gray-900 dark:text-white">浙江科技学院-AIL510实验室</span>
   </div>
 </template>
 
@@ -117,8 +117,18 @@
 <script setup>
   import {ref} from "vue";
   import { Application } from '@splinetool/runtime';
+  import TypeIt from 'typeit'
+  const chat = ref(null)
   onMounted(()=>{
     getUI()
+    new (TypeIt)(chat.value, {
+      strings: ["释放你的创造力", "大道至简，实干为要。 路虽远，行则将至；事虽难，做则必成。","浙江科技学院-AIL510实验室"],
+      speed: 150,
+      lifeLike: true,// 使打字速度不规则
+      cursor: true,//在字符串末尾显示闪烁的光标
+      breakLines: false,// 控制是将多个字符串打印在彼此之上，还是删除这些字符串并相互替换
+      loop: false,//是否循环
+    }).go()
   })
   function getUI(){
     if (process.client) {
