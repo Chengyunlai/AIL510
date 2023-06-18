@@ -35,6 +35,14 @@
                   </div>
                 </div>
 
+                <div>
+                  <label for="code" class="block text-sm font-medium text-gray-700">验证码</label>
+                  <div class="mt-1">
+                    <input v-model="user.code" id="code" name="code" required="" class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+                  </div>
+                  <img class="mt-2 w-2/5" @click="getCode()" v-bind:src="codeUrl">
+                </div>
+
                 <div class="flex items-center justify-between">
                   <div class="flex items-center">
                     <input v-model="user.selected" id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
@@ -50,7 +58,6 @@
                   <button @click.prevent="login()" class="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">登录</button>
                 </div>
               </form>
-
               <div class="mt-6">
                 <div class="relative">
                   <div class="absolute inset-0 flex items-center">
@@ -62,17 +69,14 @@
                 </div>
 
                 <div class="mt-6 grid grid-cols-3 gap-3">
-                  <div>
-                    <a href="#" class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50">
-                      <span class="sr-only">Sign in with Facebook</span>
-                      <!--<svg class="h-5 w-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">-->
-                      <!--  <path fill-rule="evenodd" d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z" clip-rule="evenodd" />-->
-                      <!--</svg>-->
-                      <n-icon size="25">
-                        <WechatFilled></WechatFilled>
-                      </n-icon>
-                    </a>
-                  </div>
+                  <WechatCard></WechatCard>
+                  <!--<div>-->
+                  <!--  <a href="#" class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50">-->
+                  <!--    <n-icon size="25">-->
+                  <!--      <WechatFilled @click="getLogin()"></WechatFilled>-->
+                  <!--    </n-icon>-->
+                  <!--  </a>-->
+                  <!--</div>-->
 
                   <div>
                     <a href="#" class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50">
@@ -109,6 +113,9 @@
 import {WechatFilled,QqOutlined} from '@vicons/antd'
 import confetti from 'canvas-confetti'
 import {ref,toRefs} from "vue";
+function getLogin(){
+  weachtLogin.value = !(weachtLogin.value)
+}
 const end = Date.now() + (2*1000)
 
 // 喷出五彩纸屑
@@ -119,16 +126,6 @@ const animationEnd = Date.now() + duration;
 const defaults = { startVelocity: 18, spread: 250, ticks: 120, zIndex: 0 };
 
 function frame(){
-  // confetti({
-  //   particleCount: 100,
-  //   spread: 45,
-  //   origin: {x:0.1,y: 1.1 },
-  // })
-  // confetti({
-  //   particleCount: 130,
-  //   spread: 45,
-  //   origin: {x:0.9,y: 1.1 },
-  // })
   confetti({
     particleCount: 200,
     spread: 180,
@@ -173,12 +170,15 @@ if (process.client) {
   }
 }
 
+// 登录表单信息
 const user = ref({
   username:'',
   password:'',
+  code:'',
   selected:false
 })
 
+// 获取全局url
 const config = useRuntimeConfig()
 
 // 登录方法
@@ -188,16 +188,16 @@ const message = useMessage()
 const store = is_Login()
 const {token} = storeToRefs(store)
 const router = useRouter()
+const codeUrl = ref('http://localhost:8457/ail510/user/getVerificationCode')
 
 async function login() {
   const userJson = JSON.stringify(user.value)
-  // console.log(userJson)
 
-  const {data: res, pending, error, refresh} = await useFetch(() => '/login', {
+  const {data: res, pending, error, refresh} = await useFetch(() => '/user/login', {
     baseURL: config.public.baseUrl,
     method: 'post',
     body: userJson,
-    server: false
+    credentials: 'include'
   })
 
   if (pending) {
@@ -208,22 +208,29 @@ async function login() {
   }
   console.log(res.value)
   if (res && res.value.code==200) {
-    message.success(res.value.message, {
+    message.success(res.value.msg, {
       duration: 5000
     })
-    console.log(res.value.data.token)
-    token.value  = res.value.data.token
+    // 从请求头中拿取Authorization
+    // console.log(res.value.data.Authorization)
+    // 将Token持久化，使用Pinia
+    token.value = res.value.data.Authorization
     router.push({ path: "/room" });
-
-  } else if (res && res.value.code==201) {
-    message.error(res.value.message, {
+  } else if (res) {
+    message.error(res.value.msg, {
       duration: 5000
     })
+    codeUrl.value = 'http://localhost:8457/ail510/user/getVerificationCode?time='+new Date().getTime();
   }else{
     message.error("网络问题请稍后重试", {
       duration: 5000
     })
+    codeUrl.value = 'http://localhost:8457/ail510/user/getVerificationCode?time='+new Date().getTime();
   }
+}
+
+async function getCode(){
+  codeUrl.value = 'http://localhost:8457/ail510/user/getVerificationCode?time='+new Date().getTime();
 }
 </script>
 

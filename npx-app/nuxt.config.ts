@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@huntersofbook/naive-ui-nuxt',
     '@pinia-plugin-persistedstate/nuxt',
+    '@nuxt/image',
     // 引入 Pinia
     [
       "@pinia/nuxt",
@@ -55,7 +56,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig:{
     public:{
-      baseUrl:'http://localhost:8080/'
+      baseUrl:'http://localhost:8457/ail510'
     }
   },
 });

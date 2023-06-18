@@ -12,24 +12,24 @@
               autoplay
           >
             <n-carousel-item :style="{ width: '60%' }">
-              <img
+              <nuxt-img
                   class="carousel-img"
                   src="/20230227082427856z4P.png"
-              >
+              />
             </n-carousel-item>
 
             <n-carousel-item :style="{ width: '60%' }">
-              <img
+              <nuxt-img
                   class="carousel-img"
                   src="/20230220151141651dp5.jpg"
-              >
+              />
             </n-carousel-item>
 
             <n-carousel-item :style="{ width: '60%' }">
-              <img
+              <nuxt-img
                   class="carousel-img"
                   src="/20230301150420343vE3.png"
-              >
+              />
             </n-carousel-item>
           </n-carousel>
         </n-grid-item>

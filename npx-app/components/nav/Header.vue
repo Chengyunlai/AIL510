@@ -56,18 +56,19 @@ const router = useRouter()
 const config = useRuntimeConfig()
 
 async function login(){
+  console.log(token.value)
   if (token.value != null){
     // 验证token是否有效
-    const {data,error} =await useFetch('/verification',{
+    const {data,error} =await useFetch('/user/verification',{
       baseURL: config.public.baseUrl,
       method: 'get',
       headers:{
-        'token':token
+        'Authorization':token
       },
       server: false
     })
     // 如果token有效
-    if (data.value.code == 201){
+    if (data.value.code != 200){
       router.push({ path: "/login" });
     }else {
       router.push({ path: "/room" });

@@ -48,7 +48,11 @@
       </a-menu>
     </a-col >
     <a-col flex="100px" class="h-full flex items-center justify-start bg-white dark:bg-neutral-800">
-      <a-button type="primary">写文章</a-button>
+      <a-button type="primary">
+        <NuxtLink to="/room/article">
+          写文章
+        </NuxtLink>
+      </a-button>
     </a-col>
     <!--头像、主题、通知-->
     <a-col flex="275px" style="padding: 0" class="h-full flex items-center justify-around bg-white dark:bg-neutral-800">

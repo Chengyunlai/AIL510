@@ -11,10 +11,12 @@
             :default-selected-keys="['0_3']"
             :style="{ width: '100%' }"
         >
+          <NuxtLink to="/room">
           <a-menu-item key="0_1">
             <IconHome></IconHome>
             工作台
           </a-menu-item>
+          </NuxtLink>
           <a-sub-menu key="1">
             <template #title>
               <IconCalendar></IconCalendar> 工具
