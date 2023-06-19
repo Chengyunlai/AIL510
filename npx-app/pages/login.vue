@@ -187,7 +187,7 @@ async function login() {
       duration:1000
     })
   }
-  console.log(res.value)
+  // console.log(res.value)
   if (res && res.value.code==200) {
     message.success(res.value.msg, {
       duration: 5000
@@ -196,7 +196,7 @@ async function login() {
     // console.log(res.value.data.Authorization)
     // 将Token持久化，使用Pinia
     token.value = res.value.data.Authorization
-    router.push({ path: "/room" });
+    router.push({ path: "/room" })
   } else if (res) {
     message.error(res.value.msg, {
       duration: 5000
